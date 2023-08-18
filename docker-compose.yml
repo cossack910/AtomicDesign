@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  atomicdesign:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/var/www/atomicDesign
+    tty: true
+    ports:
+      - 5173:5173
+    container_name: atomicdesign
