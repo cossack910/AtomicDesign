@@ -12,6 +12,7 @@ interface UserCardProps {
     name: string;
   };
   website: string;
+  isAdmin: boolean;
 }
 
 export const UserCard: React.FC<UserCardProps> = ({
@@ -21,10 +22,11 @@ export const UserCard: React.FC<UserCardProps> = ({
   phone,
   company,
   website,
+  isAdmin,
 }) => {
   return (
     <Card>
-      <UserIconWithName name={name} image={image} />
+      <UserIconWithName name={name} image={image} isAdmin={isAdmin} />
       <SDL>
         <dt>メール</dt>
         <dd>{email}</dd>

@@ -8,9 +8,10 @@ docker exec -it atomicdesign npm run dev
 
 ## tips
 
-| No                                                        | title                    |
-| --------------------------------------------------------- | ------------------------ |
-| [#1](https://github.com/cossack910/AtomicDesign/issues/1) | styled-components の継承 |
+| No                                                        | title                       |
+| --------------------------------------------------------- | --------------------------- |
+| [#1](https://github.com/cossack910/AtomicDesign/issues/1) | styled-components の継承    |
+| [#2](https://github.com/cossack910/AtomicDesign/issues/2) | useNavigate に state を渡す |
 
 ### 環境構築クローンしたときと新規開始時にこれを実行
 

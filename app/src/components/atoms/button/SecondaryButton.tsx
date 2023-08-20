@@ -1,13 +1,16 @@
+import React from "react";
 import styled from "styled-components";
 
 interface SecondaryButtonButtonProps {
   text: string;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const SecondaryButton: React.FC<SecondaryButtonButtonProps> = ({
   text,
+  onClick,
 }) => {
-  return <SButton>{text}</SButton>;
+  return <SButton onClick={onClick}>{text}</SButton>;
 };
 
 const SButton = styled.button`
