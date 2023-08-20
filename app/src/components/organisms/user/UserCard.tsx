@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import "../../../styles.css";
 import Card from "../../atoms/card/card";
 import UserIconWithName from "../../molecule/user/UserIconWithName";
 
 interface UserCardProps {
+  name: string;
+  image: string;
   email: string;
   phone: string;
   company: {
@@ -14,6 +15,8 @@ interface UserCardProps {
 }
 
 export const UserCard: React.FC<UserCardProps> = ({
+  name,
+  image,
   email,
   phone,
   company,
@@ -21,10 +24,7 @@ export const UserCard: React.FC<UserCardProps> = ({
 }) => {
   return (
     <Card>
-      <UserIconWithName
-        name="aaa"
-        image="https://source.unsplash.com/Sg3XwuEpybU"
-      />
+      <UserIconWithName name={name} image={image} />
       <SDL>
         <dt>メール</dt>
         <dd>{email}</dd>
