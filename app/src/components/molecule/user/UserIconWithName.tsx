@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { UserContext } from "../../../providers/UserProvider";
 
 interface UserIconWithNameProps {
   image: string;
@@ -12,6 +13,8 @@ export const UserIconWithName: React.FC<UserIconWithNameProps> = ({
   name,
   isAdmin,
 }) => {
+  const context = useContext(UserContext);
+  console.log(context);
   return (
     <SContainer>
       <SImg height={160} width={160} src={image} alt="プロフィール" />
