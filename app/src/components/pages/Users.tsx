@@ -2,8 +2,11 @@ import styled from "styled-components";
 import SearchInput from "../molecule/SearchInput";
 import users from "./TestData";
 import UserCard from "../organisms/user/UserCard";
+import { useLocation } from "react-router-dom";
 
 export const Users = () => {
+  const { state } = useLocation();
+  const isAdmin = state ? state.isAdmin : false;
   return (
     <SContainer>
       <h2>ユーザー一覧</h2>
@@ -18,6 +21,7 @@ export const Users = () => {
             phone={user.phone}
             company={{ name: user.company.name }}
             website={user.website}
+            isAdmin={isAdmin}
           />
         ))}
       </SUSreArea>
