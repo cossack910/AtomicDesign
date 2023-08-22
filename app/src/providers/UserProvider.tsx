@@ -1,15 +1,32 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 
 interface UserProviderProps {
   children: React.ReactNode;
 }
 
-export const UserContext = createContext({});
+interface setUserInfoInterface {
+  isAdmin: boolean | null;
+}
+
+interface UserContextType {
+  userInfo: setUserInfoInterface;
+  setUserInfo: React.Dispatch<React.SetStateAction<setUserInfoInterface>>;
+}
+
+export const UserContext = createContext<UserContextType>({
+  userInfo: { isAdmin: null },
+  setUserInfo: () => {},
+});
 
 export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
-  const contextName = "aaa";
+  const [userInfo, setUserInfo] = useState<setUserInfoInterface>({
+    isAdmin: null,
+  });
+
   return (
-    <UserContext.Provider value={contextName}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ userInfo, setUserInfo }}>
+      {children}
+    </UserContext.Provider>
   );
 };
 
