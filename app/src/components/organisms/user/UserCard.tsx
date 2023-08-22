@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 import Card from "../../atoms/card/card";
 import UserIconWithName from "../../molecule/user/UserIconWithName";
@@ -12,34 +12,28 @@ interface UserCardProps {
     name: string;
   };
   website: string;
-  isAdmin: boolean;
 }
 
-export const UserCard: React.FC<UserCardProps> = ({
-  name,
-  image,
-  email,
-  phone,
-  company,
-  website,
-  isAdmin,
-}) => {
-  return (
-    <Card>
-      <UserIconWithName name={name} image={image} isAdmin={isAdmin} />
-      <SDL>
-        <dt>メール</dt>
-        <dd>{email}</dd>
-        <dt>TEL</dt>
-        <dd>{phone}</dd>
-        <dt>会社名</dt>
-        <dd>{company.name}</dd>
-        <dt>ウェブサイト</dt>
-        <dd>{website}</dd>
-      </SDL>
-    </Card>
-  );
-};
+export const UserCard: React.FC<UserCardProps> = memo(
+  ({ name, image, email, phone, company, website }) => {
+    console.log("redering  UserCard");
+    return (
+      <Card>
+        <UserIconWithName name={name} image={image} />
+        <SDL>
+          <dt>メール</dt>
+          <dd>{email}</dd>
+          <dt>TEL</dt>
+          <dd>{phone}</dd>
+          <dt>会社名</dt>
+          <dd>{company.name}</dd>
+          <dt>ウェブサイト</dt>
+          <dd>{website}</dd>
+        </SDL>
+      </Card>
+    );
+  }
+);
 
 const SDL = styled.dl`
   text-align: left;
