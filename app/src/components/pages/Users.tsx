@@ -2,15 +2,18 @@ import styled from "styled-components";
 import SearchInput from "../molecule/SearchInput";
 import users from "./TestData";
 import UserCard from "../organisms/user/UserCard";
-import { useLocation } from "react-router-dom";
+import SecondaryButton from "../atoms/button/SecondaryButton";
+import { useUserContext } from "../../providers/UseUserContext";
 
 export const Users = () => {
-  const { state } = useLocation();
-  const isAdmin = state ? state.isAdmin : false;
+  const { userInfo, setUserInfo } = useUserContext();
+  const onClickSwicth = () => setUserInfo({ isAdmin: !userInfo.isAdmin });
   return (
     <SContainer>
       <h2>ユーザー一覧</h2>
       <SearchInput />
+      <br />
+      <SecondaryButton text="権限切り替え" onClick={onClickSwicth} />
       <SUSreArea>
         {users.map((user) => (
           <UserCard
@@ -21,7 +24,6 @@ export const Users = () => {
             phone={user.phone}
             company={{ name: user.company.name }}
             website={user.website}
-            isAdmin={isAdmin}
           />
         ))}
       </SUSreArea>

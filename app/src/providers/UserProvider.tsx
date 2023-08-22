@@ -5,7 +5,7 @@ interface UserProviderProps {
 }
 
 interface setUserInfoInterface {
-  isAdmin: boolean | null;
+  isAdmin: boolean;
 }
 
 interface UserContextType {
@@ -13,14 +13,13 @@ interface UserContextType {
   setUserInfo: React.Dispatch<React.SetStateAction<setUserInfoInterface>>;
 }
 
-export const UserContext = createContext<UserContextType>({
-  userInfo: { isAdmin: null },
-  setUserInfo: () => {},
-});
+export const UserContext = createContext<UserContextType | undefined>(
+  undefined
+);
 
 export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   const [userInfo, setUserInfo] = useState<setUserInfoInterface>({
-    isAdmin: null,
+    isAdmin: false,
   });
 
   return (
