@@ -5,21 +5,19 @@ import { UserContext } from "../../../providers/UserProvider";
 interface UserIconWithNameProps {
   image: string;
   name: string;
-  isAdmin: boolean;
 }
 
 export const UserIconWithName: React.FC<UserIconWithNameProps> = ({
   image,
   name,
-  isAdmin,
 }) => {
-  const context = useContext(UserContext);
-  console.log(context);
+  const { userInfo } = useContext(UserContext);
+  const IsAdmin = userInfo ? userInfo.isAdmin : false;
   return (
     <SContainer>
       <SImg height={160} width={160} src={image} alt="プロフィール" />
       <SName>{name}</SName>
-      {isAdmin && <SEdit>編集</SEdit>}
+      {IsAdmin && <SEdit>編集</SEdit>}
     </SContainer>
   );
 };
