@@ -1,13 +1,18 @@
+import React, { memo } from "react";
 import styled from "styled-components";
 import SearchInput from "../molecule/SearchInput";
 import users from "./TestData";
 import UserCard from "../organisms/user/UserCard";
 import SecondaryButton from "../atoms/button/SecondaryButton";
-import { useUserContext } from "../../providers/UseUserContext";
+// import { useUserContext } from "../../providers/UseUserContext";
+import { useRecoilState } from "recoil";
+import { userState } from "../../store/userState";
 
-export const Users = () => {
-  const { userInfo, setUserInfo } = useUserContext();
+export const Users: React.FC = memo(() => {
+  //const { userInfo, setUserInfo } = useUserContext();
+  const [userInfo, setUserInfo] = useRecoilState(userState);
   const onClickSwicth = () => setUserInfo({ isAdmin: !userInfo.isAdmin });
+  console.log("rendering Users");
   return (
     <SContainer>
       <h2>ユーザー一覧</h2>
@@ -22,14 +27,14 @@ export const Users = () => {
             image={user.image}
             email={user.email}
             phone={user.phone}
-            company={{ name: user.company.name }}
+            company={user.company.name}
             website={user.website}
           />
         ))}
       </SUSreArea>
     </SContainer>
   );
-};
+});
 
 const SContainer = styled.div`
   text-align: center;

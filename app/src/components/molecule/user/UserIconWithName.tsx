@@ -1,6 +1,8 @@
 import React, { memo } from "react";
 import styled from "styled-components";
-import { useUserContext } from "../../../providers/UseUserContext";
+// import { useUserContext } from "../../../providers/UseUserContext";
+import { useRecoilValue } from "recoil";
+import { userState } from "../../../store/userState";
 
 interface UserIconWithNameProps {
   image: string;
@@ -9,8 +11,9 @@ interface UserIconWithNameProps {
 
 export const UserIconWithName: React.FC<UserIconWithNameProps> = memo(
   ({ image, name }) => {
-    console.log("redering  UserIconWithName");
-    const { userInfo } = useUserContext();
+    console.log("rendering  UserIconWithName");
+    // const { userInfo } = useUserContext();
+    const userInfo = useRecoilValue(userState);
     const isAdmin = userInfo ? userInfo.isAdmin : false;
     return (
       <SContainer>

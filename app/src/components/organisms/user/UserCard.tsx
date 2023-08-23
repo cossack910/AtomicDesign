@@ -8,15 +8,13 @@ interface UserCardProps {
   image: string;
   email: string;
   phone: string;
-  company: {
-    name: string;
-  };
+  company: string;
   website: string;
 }
 
 export const UserCard: React.FC<UserCardProps> = memo(
   ({ name, image, email, phone, company, website }) => {
-    console.log("redering  UserCard");
+    console.log("rendering  UserCard");
     return (
       <Card>
         <UserIconWithName name={name} image={image} />
@@ -26,7 +24,7 @@ export const UserCard: React.FC<UserCardProps> = memo(
           <dt>TEL</dt>
           <dd>{phone}</dd>
           <dt>会社名</dt>
-          <dd>{company.name}</dd>
+          <dd>{company}</dd>
           <dt>ウェブサイト</dt>
           <dd>{website}</dd>
         </SDL>

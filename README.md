@@ -8,12 +8,14 @@ docker exec -it atomicdesign npm run dev
 
 ## tips
 
-| No                                                        | title                       |
-| --------------------------------------------------------- | --------------------------- |
-| [#1](https://github.com/cossack910/AtomicDesign/issues/1) | styled-components の継承    |
-| [#2](https://github.com/cossack910/AtomicDesign/issues/3) | useNavigate に state を渡す |
-| [#3](https://github.com/cossack910/AtomicDesign/issues/5) | Context                     |
-| [#4](https://github.com/cossack910/AtomicDesign/issues/7) | Dispatch                    |
+| No                                                         | title                                                      |
+| ---------------------------------------------------------- | ---------------------------------------------------------- |
+| [#1](https://github.com/cossack910/AtomicDesign/issues/1)  | styled-components の継承                                   |
+| [#2](https://github.com/cossack910/AtomicDesign/issues/3)  | useNavigate に state を渡す                                |
+| [#3](https://github.com/cossack910/AtomicDesign/issues/5)  | Context                                                    |
+| [#4](https://github.com/cossack910/AtomicDesign/issues/7)  | Dispatch                                                   |
+| [#5](https://github.com/cossack910/AtomicDesign/issues/9)  | **(bug)** メモ化した子コンポーネントが再レンダリングされる |
+| [#6](https://github.com/cossack910/AtomicDesign/issues/10) | Recoil                                                     |
 
 ### 環境構築クローンしたときと新規開始時にこれを実行
 
