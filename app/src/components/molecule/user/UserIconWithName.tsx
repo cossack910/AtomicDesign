@@ -9,7 +9,7 @@ interface UserIconWithNameProps {
 
 export const UserIconWithName: React.FC<UserIconWithNameProps> = memo(
   ({ image, name }) => {
-    console.log("redering  UserIconWithName");
+    console.log("rendering  UserIconWithName");
     const { userInfo } = useUserContext();
     const isAdmin = userInfo ? userInfo.isAdmin : false;
     return (
